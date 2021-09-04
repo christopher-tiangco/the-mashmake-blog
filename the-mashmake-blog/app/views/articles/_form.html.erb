@@ -1,0 +1,43 @@
+<% 
+    # `form_with` is a view helper that provides a way to submit on a form
+    # - It automatically embeds a `hidden input` field for `authenticity token` which is a Rails-specific feature
+    #   to prevent form submission from unwanted clients
+    # - Having the `model: @article` param makes it a candidate for partial as it's using an instance variable as opposed to using `scope: :article` (see commented code at new.html.erb)
+%>
+<div class="container">
+    
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <%= form_with(model: @article, class: "shadow p-5 mb-5 bg-white rounded", local: true) do |form| %>
+                
+                <div class="form-group row">
+                    <%= form.label :title, "Title:", class: "col-sm-2 col-form-label" %>
+                    <div class="col-sm-10">
+                        <%= form.text_field :title, class: "form-control shadow rounded", placeholder: "Title of article", autofocus: true %>
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <%= form.label :description, "Description:", class: "col-sm-2 col-form-label" %>
+                    <div class="col-sm-10">
+                        <%= form.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of article" %>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <%= form.label :categories, "Categories:", class: "col-sm-2 col-form-label" %>
+                    <div class="col-sm-10">
+                        <%= form.collection_select(:category_ids, Category.all, :id, :name, {prompt: "--- Select categories ---"}, {multiple: true, size: 10, class: "custom-select shadow rounded"}) %>
+                    </div>
+                </div>
+                
+                <div class="form-group row justify-content-center">
+                    <%= form.submit class: "btn btn-outline-primary"%>
+                    &nbsp;&nbsp;&nbsp;
+                    <%= link_to "Cancel", articles_path, class: "btn btn-outline-danger" %>
+                </div>
+                
+            <% end %>
+        </div>
+    </div>
+</div>

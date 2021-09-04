@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8 mt-4">
+        <div class="card text-left shadow mb-5 bg-white rounded">
+          <div class="card-header">
+            <h5 class="font-weight-bold">User Profile</h5>
+          </div>
+          <div class="card-body">
+            <div>
+              <%= gravatar_for(@user.email, {size: 50}) %>
+            </div>
+            <div>
+                <span class="font-weight-bold"></span>Username: </span>
+                <span class="text-monospace"><%= @user.username %></span>
+            </div>
+            <div>
+                <span class="font-weight-bold"></span>Email: </span>
+                <span class="text-monospace"><%= @user.email %></span>
+            </div>
+            <% if logged_in? && (current_user == @user || current_user.admin?) %>
+              <br />
+              <%= link_to 'Edit', edit_user_path(@user) %>
+              <br />
+              <%= link_to 'Delete my account', user_path(@user), class: "text-danger", method: :delete, data: { confirm: "This cannot be undone. Are you sure?" } %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+</div>
+<hr width="100%" />
+<h3 class="text-center">Article listing</h3>
+<%= render 'articles/articles' %>

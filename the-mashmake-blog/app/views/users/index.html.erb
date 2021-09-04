@@ -1,0 +1,44 @@
+<h1 class="text-center mt-4">Bloggers</h1>
+
+<div class="container">
+<% @users.each do |user| %>
+    <div class="row justify-content-center">
+        <div class="col-10 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+              <div class="card-header font-italic text-primary font-weight-bolder">
+                <%= user.username %>
+              </div>
+              <div class="card-body">
+                  <div>
+                      <%= link_to gravatar_for(user.email, {size: 100}), user_path(user) %>
+                  </div>
+                  <div class="mt-4">
+                      <%= pluralize(user.articles.count, "article") %>
+                  </div>
+                  <div class="mt-4">
+                      <%= link_to 'View Profile', user_path(user), class: "btn btn-outline-success" %>
+                      <% if logged_in? && (current_user == user || current_user.admin?) %>
+                        &nbsp;
+                        <%= link_to 'Edit Profile', edit_user_path(user), class: "btn btn-outline-primary" %>
+                        &nbsp;
+                        <%= link_to 'Delete', user_path(user), class: 'btn btn-outline-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                      <% end %>
+                  </div>
+              </div>
+              <div class="card-footer text-muted">
+                  <small>
+                      Joined <%= time_ago_in_words(user.created_at) %> ago
+                  </small>
+              </div>
+            </div>
+        </div>
+    </div>
+<% end %>
+<% if @users.count == 0 %>
+  <div class="font-italic text-center">No users found</div>
+<% end %>
+
+  <div class="text-center">
+    <%= will_paginate @users, class: "apple_pagination" %>
+  </div>
+</div>

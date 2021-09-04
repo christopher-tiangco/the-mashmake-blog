@@ -1,0 +1,89 @@
+.navbar {
+    background-color: #000 !important;
+}
+
+.nav-link {
+    color: #FFF !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(10, 255, 51, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+#home-container {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    background-image: asset-url("coder-min.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#footer {
+    background-color: #95999C !important;
+    color: #FFF !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgrey;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+}
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; 
+}
+
+.apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em;
+}
+
+.apple_pagination .disabled {
+    color: #aaaaaa; 
+}
+
+.apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+}
+
+.apple_pagination a {
+    text-decoration: none;
+    color: black; 
+}
+
+.apple_pagination a:hover, .apple_pagination a:focus {
+    text-decoration: underline; 
+}

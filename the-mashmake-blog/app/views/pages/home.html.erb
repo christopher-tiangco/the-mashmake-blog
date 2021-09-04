@@ -1,0 +1,14 @@
+<div class="container" id="home-container">
+    <div class="jumbotron text-center text-white">
+      <h1 class="display-4">Mashmake</h1>
+      <p class="lead"></p>
+      <hr class="my-4">
+      <p>Mixing and mashing all tech ideas one day at a time!</p>
+      
+      <% if !logged_in? %>
+        <%= link_to 'Login', login_path, class: 'btn btn-success btn-lg' %>
+        &nbsp;&nbsp;
+        <%= link_to 'Sign up!', signup_path, class: 'btn btn-primary btn-lg' %>
+      <% end %>
+    </div>
+</div>

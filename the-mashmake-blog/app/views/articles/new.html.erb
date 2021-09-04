@@ -1,0 +1,26 @@
+<h1 class="text-center mt-4">Create new Article</h1>
+
+<% 
+    # `form_with` is a view helper that provides a way to submit on a form
+    # - It automatically embeds a `hidden input` field for `authenticity token` which is a Rails-specific feature
+    #   to prevent form submission from unwanted clients
+%>
+<!--
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+    <div>
+        <%= form.label :title, "Title:" %>
+        <br />
+        <%= form.text_field :title %>
+    </div>
+    <br />
+    <div>
+        <%= form.label :description, "Description:" %>
+        <br />
+        <%= form.text_area :description, size: "30x10" %>
+    </div>
+    <div>
+        <%= form.submit "Create" %>
+    </div>
+<% end %>
+-->
+<%= render 'form' %>
