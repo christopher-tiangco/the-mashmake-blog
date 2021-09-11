@@ -18,7 +18,7 @@ docker build -t rails:latest .
 
 - Run the Docker image, mount the repository into the container and expose a port that can be reached
 ```
-docker run -it -d --name=rails -v <path where the project was cloned>/the-mashmake-blog:/home -p 3030:3030 rails
+docker run -it -d --name=rails -v <path where the project was cloned>:/home -p 3030:3030 rails
 ```
 
 - Connect to the container
