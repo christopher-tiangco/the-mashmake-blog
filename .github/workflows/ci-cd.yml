@@ -28,6 +28,11 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
+          
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@master
+        with:
+          platforms: all
 
       # Build for multiple platforms
       - name: Build app to run on multiple platforms
