@@ -1,9 +1,0 @@
-FROM ghcr.io/christopher-tiangco/the-mashmake-blog:base
-
-COPY the-mashmake-blog/* .
-
-RUN bundle install
-
-RUN rails db:migrate
-
-EXPOSE 3030
