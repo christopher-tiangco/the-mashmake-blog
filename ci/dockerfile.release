@@ -1,0 +1,5 @@
+FROM ghcr.io/christopher-tiangco/the-mashmake-blog:base
+
+COPY the-mashmake-blog/* .
+
+EXPOSE 3030
