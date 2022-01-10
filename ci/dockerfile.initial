@@ -1,0 +1,15 @@
+FROM ruby:2.6.8-buster
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && \
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" && \
+nvm install 10.23.3 && nvm alias default 10.23.3 && nvm use 10.23.3 && npm install -g yarn && \
+gem install rails -v 5.2
+
+COPY the-mashmake-blog/ /home/the-mashmake-blog/
+
+WORKDIR /home/the-mashmake-blog
+
+RUN bundle install
+
+EXPOSE 3030
