@@ -52,10 +52,16 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.assets.prefix = '/learn/udemy-alpha-blog/assets'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.relative_url_root = '/learn/udemy-alpha-blog'
+  
+  config.hosts.clear
 end
